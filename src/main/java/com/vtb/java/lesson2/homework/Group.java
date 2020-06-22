@@ -17,8 +17,9 @@ public class Group {
     // если массив слишком большой, то берется его копия длиной 10 элементов
     public Group(String name, Employee... employees) {
         this.name = name;
+        this.employees = new Employee[10];
         if (employees.length <= 10) {
-            this.employees = employees;
+            System.arraycopy(employees, 0, this.employees, 0, employees.length);
             this.count = employees.length;
         } else {
             System.out.println("Слишком большое число сотрудников!");
