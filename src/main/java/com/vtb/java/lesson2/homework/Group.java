@@ -15,14 +15,13 @@ public class Group {
 
     // конструктор с возможностью передачи в него массива с сотрудниками
     // если массив слишком большой, то берется его копия длиной 10 элементов
-    public Group(String name, Employee[] employees) {
+    public Group(String name, Employee... employees) {
         this.name = name;
         if (employees.length <= 10) {
             this.employees = employees;
             this.count = employees.length;
         } else {
-            this.employees = Arrays.copyOfRange(employees, 0, 10);
-            this.count = 10;
+            System.out.println("Слишком большое число сотрудников!");
         }
     }
 
@@ -39,7 +38,6 @@ public class Group {
     // удаление сотрудника по индексу
     public void deleteEmployee(int index) {
         if (employees[index] != null && index < 10) {
-            employees[index] = null;
             for (int i = index + 1; i < count; i++) {
                 employees[i - 1] = employees[i];
                 employees[i] = null;
@@ -54,7 +52,7 @@ public class Group {
     // удаление всех сотрудников
     public void deleteAllEmployees() {
         System.out.println("Все сотрудники удалены!");
-        this.employees = new Employee[10];
+        Arrays.fill(employees, null);
         count = 0;
     }
 
