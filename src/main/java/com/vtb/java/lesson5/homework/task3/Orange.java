@@ -1,10 +1,8 @@
 package com.vtb.java.lesson5.homework.task3;
 
 public class Orange extends Fruit {
-    private static final float weight = 1.5f;
-
     public Orange(String name) {
-        super(name, weight);
+        super(name, 1.5f);
     }
 
     @Override
