@@ -17,7 +17,7 @@ public class MainApp {
         };
         String[][] arrThree = {
                 new String[]{"12", "13", "14", "15"},
-                new String[]{"12", "abs", "14", "15"},
+                new String[]{"12", "abs", "14", "15", "23"},
                 new String[]{"12", "13", "14", "15"},
                 new String[]{"12", "13", "14", "15"}
         };
@@ -32,8 +32,14 @@ public class MainApp {
     }
 
     public static int sumArrayElem(String[][] arr) {
-        if (arr.length != 4 || arr[0].length != 4) {
-            throw new MyArraySizeException(String.format("Массив должен быть размером 4х4, а его размер %dх%d", arr.length, arr[0].length));
+        if (arr.length != 4) {
+            throw new MyArraySizeException("Массив должен быть размером 4х4");
+        } else {
+            for (String[] strings : arr) {
+                if (strings.length != 4) {
+                    throw new MyArraySizeException("Массив должен быть размером 4х4");
+                }
+            }
         }
 
         int sum = 0;
