@@ -29,8 +29,8 @@ public class MainApp {
     }
 
     // метод, котроый меняет два элемента массива местами
-    public static <T> void swapArrayElements(T[] arr, int firstIndex, int secondIndex) {
-        T temp = arr[firstIndex];
+    public static void swapArrayElements(Object[] arr, int firstIndex, int secondIndex) {
+        Object temp = arr[firstIndex];
         arr[firstIndex] = arr[secondIndex];
         arr[secondIndex] = temp;
     }

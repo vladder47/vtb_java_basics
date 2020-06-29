@@ -1,8 +1,8 @@
 package com.vtb.java.lesson5.homework.task3;
 
 public abstract class Fruit {
-    private String name;
-    private float weight;
+    protected String name;
+    protected float weight;
 
     public Fruit(String name, float weight) {
         this.name = name;

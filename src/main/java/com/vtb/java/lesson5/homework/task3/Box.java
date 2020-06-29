@@ -17,10 +17,6 @@ public class Box<T extends Fruit> {
         fruits.addAll(frs);
     }
 
-    public ArrayList<T> getFruits() {
-        return fruits;
-    }
-
     public double getWeight() {
         if (!fruits.isEmpty()) {
             return fruits.size() * fruits.get(0).getWeight();
@@ -33,7 +29,11 @@ public class Box<T extends Fruit> {
     }
 
     public void pourIntoBox(Box<T> boxTwo) {
-        boxTwo.addFruits(getFruits());
+        if (this == boxTwo) {
+            System.out.println("Вы пытаетесь пересыпать фрукты в ту же самую коробку!");
+            return;
+        }
+        boxTwo.addFruits(fruits);
         fruits.clear();
     }
 }

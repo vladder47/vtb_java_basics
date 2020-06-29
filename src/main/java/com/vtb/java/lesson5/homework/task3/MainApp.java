@@ -5,14 +5,14 @@ import java.util.Arrays;
 
 public class MainApp {
     public static void main(String[] args) {
-        Apple appOne = new Apple("Антоновка");
-        Apple appTwo = new Apple("Белый налив");
-        Apple appThree = new Apple("Мельба");
-        Apple appFour = new Apple("Макинтош");
+        Apple appOne = new Apple();
+        Apple appTwo = new Apple();
+        Apple appThree = new Apple();
+        Apple appFour = new Apple();
 
-        Orange orangeOne = new Orange("Гамлин");
-        Orange orangeTwo = new Orange("Верна");
-        Orange orangeThree = new Orange("Салустиана");
+        Orange orangeOne = new Orange();
+        Orange orangeTwo = new Orange();
+        Orange orangeThree = new Orange();
 
         ArrayList<Apple> apples = new ArrayList<>(Arrays.asList(appOne, appTwo, appThree, appFour));
 
@@ -39,5 +39,7 @@ public class MainApp {
         System.out.println("Вес первой коробки: " + boxOne.getWeight());
         System.out.println("Вес третьей коробки: " + boxThree.getWeight());
 
+        boxThree.pourIntoBox(boxThree);
+        System.out.println("Вес третьей коробки: " + boxThree.getWeight());
     }
 }
