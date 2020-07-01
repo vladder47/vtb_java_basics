@@ -3,6 +3,8 @@ package com.vtb.java.lesson6.homework.task2;
 import java.util.*;
 
 public class PhoneBook {
+    // использовал LinkedHashSet, чтобы номера телефонов не дублировались
+    // и выводились в том порядке, в котором были занесены
     private HashMap<String, LinkedHashSet<String>> phoneBook;
 
     public PhoneBook() {

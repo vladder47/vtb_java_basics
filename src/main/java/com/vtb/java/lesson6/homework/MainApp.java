@@ -4,10 +4,10 @@ import java.util.*;
 
 public class MainApp {
     public static void main(String[] args) {
-        String[] words = {"cat", "cat", "cat", "dog", "cat", "dog", "cat",
+        String[] words = {"cat", "cat", "Cat", "dog", "cat", "dog", "cat",
                 "cat", "hello", "hello", "cat", "world", "world"};
         System.out.println("Исходный массив: " + Arrays.toString(words));
-        Set<String> uniqueWords = getUniqueWords(words);
+        Set<String> uniqueWords = getUniqueWordsIgnoreCase(words);
         System.out.println("Уникальные слова: " + uniqueWords);
 
         Map<String, Integer> countWords = getCountWords(words);
@@ -16,17 +16,28 @@ public class MainApp {
         }
     }
 
+    // с учетом регистра
     public static HashSet<String> getUniqueWords(String[] arr) {
         return new HashSet<>(Arrays.asList(arr));
+    }
+
+    // без учета регистра
+    public static Set<String> getUniqueWordsIgnoreCase(String[] arr) {
+        Set<String> result = new HashSet<>();
+        for (String s : arr) {
+            result.add(s.toLowerCase());
+        }
+        return result;
     }
 
     public static HashMap<String, Integer> getCountWords(String[] arr) {
         HashMap<String, Integer> result = new HashMap<>();
         for (String s : arr) {
-            if (result.containsKey(s.toLowerCase())) {
-                result.put(s.toLowerCase(), result.get(s) + 1);
+            s = s.toLowerCase();
+            if (result.containsKey(s)) {
+                result.put(s, result.get(s) + 1);
             } else {
-                result.put(s.toLowerCase(), 1);
+                result.put(s, 1);
             }
         }
         return result;
