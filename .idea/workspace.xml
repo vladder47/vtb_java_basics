@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f0bdf1-4483-4b40-b745-9dc057b04eb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson6/homework/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson6/homework/MainApp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,14 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Application.MainApp (1)">
+    <configuration name="MainApp (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson7.homework.MainApp" />
+      <module name="Java VTB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApp (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson6.homework.task2.MainApp" />
       <module name="Java VTB" />
@@ -50,14 +58,7 @@
       </method>
     </configuration>
     <configuration name="MainApp (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson4.homework.MainApp" />
-      <module name="Java VTB" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainApp (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson5.homework.MainApp" />
+      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson7.homework.task3.MainApp" />
       <module name="Java VTB" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -79,11 +80,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainApp (1)" />
+        <item itemvalue="Application.MainApp (3)" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.MainApp (2)" />
         <item itemvalue="Application.MainApp (5)" />
-        <item itemvalue="Application.MainApp (4)" />
-        <item itemvalue="Application.MainApp (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -120,22 +121,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593096297285" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1593682929732">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1593712914417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593682929732" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1593682929732">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593712914417" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1593712914417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593682929732" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1593682929732">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593712914417" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1593712914417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593682929732" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1593682929732">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593712914417" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1593712914417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593682929732" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593712914417" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1593106918970">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -144,10 +145,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593096938135" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1593682724746">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1593767652621">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593682724746" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593767652621" />
     <state x="436" y="109" key="new project wizard" timestamp="1593096304486">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
