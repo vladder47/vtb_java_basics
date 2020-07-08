@@ -52,7 +52,8 @@ public class MainApp {
 
     // вариант с использованием RecursiveTask
     public static int searchMaxElemRecursiveTask(int[] data) {
-        MaxElemSearch mes = new MaxElemSearch(data);
+        MaxElemSearch mes = new MaxElemSearch(data, 0, 100_000_000);
+        //mes.setData(data);
         return ForkJoinPool.commonPool().invoke(mes);
     }
 
@@ -72,10 +73,9 @@ public class MainApp {
     // Результаты поиска максимального элемента в целочисленном массиве
     // * размер массива - 100_000_000
     // Однопоточный вариант: 44 мс
-    // Первый вариант с использованием RecursiveTask: 4553 мс
-    // Второй вариант с использованием RecursiveTask: 3671 мс
+    // Вариант с использованием RecursiveTask: 54 мс
     // Вариант с использованием Stream: 63 мс
-    // Вариант с использованием ParallelStream: 60 мс
+    // Вариант с использованием ParallelStream: 50 мс
     // ВЫВОД: быстрее всего работает однопоточный вариант
     // Исходя из этого, можно сделать вывод, что добавление многопоточности для задачи
     // нахождения максимума не ускоряет работу программы

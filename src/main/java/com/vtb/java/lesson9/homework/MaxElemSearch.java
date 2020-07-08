@@ -1,45 +1,41 @@
 package com.vtb.java.lesson9.homework;
 
-import java.util.*;
 import java.util.concurrent.RecursiveTask;
 
 public class MaxElemSearch extends RecursiveTask<Integer> {
     private int[] data;
+    private int start;
+    private int end;
 
-    public MaxElemSearch(int[] data) {
+    public MaxElemSearch(int[] data, int start, int end) {
         this.data = data;
+        this.start = start;
+        this.end = end;
     }
 
+    @Override
     protected Integer compute() {
-        if (this.data.length > 2) {
-            List<MaxElemSearch> subtasks = createSubtasks();
-            for (MaxElemSearch subtask : subtasks) {
-                subtask.fork();
-            }
-            int result = -1;
-            for (MaxElemSearch subtask : subtasks) {
-                int temp = subtask.join();
-                if (temp > result) {
-                    result = temp;
-                }
-            }
-            return result;
+        int length = end - start;
+        if (length > 10000) {
+            int offset = length / 2;
+            MaxElemSearch left = new MaxElemSearch(data, start, start + offset);
+            left.fork();
+            MaxElemSearch right = new MaxElemSearch(data, start + offset, end);
+            right.fork();
+
+            return Math.max(left.join(), right.join());
         } else {
-            // первый вариант использует Arrays.stream()
-            return Arrays.stream(data).reduce(0, Integer::max);
-//             второй вариант без использования Arrays.stream()
-//            if (data.length == 2) {
-//                return Math.max(data[0], data[1]);
-//            } else {
-//                return data[0];
-//            }
+            return computeDirectly();
         }
     }
 
-    private List<MaxElemSearch> createSubtasks() {
-        return new ArrayList<>(Arrays.asList(
-                new MaxElemSearch(Arrays.copyOfRange(data, 0, data.length / 2)),
-                new MaxElemSearch(Arrays.copyOfRange(data, data.length / 2, data.length))
-        ));
+    private Integer computeDirectly() {
+        int result = 0;
+        for (int i = start; i < end; i++) {
+            if (data[i] > result) {
+                result = data[i];
+            }
+        }
+        return result;
     }
 }
