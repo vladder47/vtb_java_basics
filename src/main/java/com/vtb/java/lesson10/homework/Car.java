@@ -47,8 +47,8 @@ public class Car implements Runnable {
         }
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).overcome(this);
-            Race.cdl.countDown();
         }
+        Race.cdl.countDown();
         setWinner();
     }
 }

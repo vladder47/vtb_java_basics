@@ -37,7 +37,7 @@ public class Race {
             e.printStackTrace();
         }
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
-        cdl = new CountDownLatch(COMPETITORS_COUNT * stages.size());
+        cdl = new CountDownLatch(COMPETITORS_COUNT);
         try {
             cdl.await();
         } catch (InterruptedException e) {
