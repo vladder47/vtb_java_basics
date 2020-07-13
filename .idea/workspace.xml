@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f0bdf1-4483-4b40-b745-9dc057b04eb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson11/homework/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson11/homework/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson9/homework/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson9/homework/MainApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson9/homework/MaxElemSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson9/homework/MaxElemSearch.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +15,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -19,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lesson10" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,21 +45,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
-  <component name="RunManager" selected="Application.RaceApp">
-    <configuration name="MainApp (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson7.homework.MainApp" />
-      <module name="Java VTB" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainApp (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson7.homework.task3.MainApp" />
-      <module name="Java VTB" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TestRunner">
     <configuration name="MainApp (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson8.homework.MainApp" />
       <module name="Java VTB" />
@@ -77,13 +67,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson11.homework.TestRunner" />
+      <module name="Java VTB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson11.homework.TestRunner" />
+      <module name="Java VTB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestRunner" />
+        <item itemvalue="Application.MainApp (4)" />
         <item itemvalue="Application.RaceApp" />
         <item itemvalue="Application.MainApp (5)" />
-        <item itemvalue="Application.MainApp (4)" />
-        <item itemvalue="Application.MainApp (3)" />
-        <item itemvalue="Application.MainApp (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -124,22 +127,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593096297285" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1594283636136">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1594631029608">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594283636136" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1594283636135">
+    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
+    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1594631029608">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594283636135" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1594283636135">
+    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
+    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1594631029607">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594283636135" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1594283636136">
+    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594631029607" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1594631029608">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594283636136" />
+    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1594288406753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -148,10 +151,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593096938135" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1594291021236">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1594630524581">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594291021236" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594630524581" />
     <state x="436" y="109" key="new project wizard" timestamp="1593096304486">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

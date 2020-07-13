@@ -16,14 +16,11 @@ public class TestRunner {
     public static void start(Class testClass) throws InvocationTargetException, IllegalAccessException {
         Method[] methods = testClass.getDeclaredMethods();
         Map<Integer, List<Method>> mapper = new HashMap<>();
-        boolean initialFlag = false;
-        boolean finalFlag = false;
         Method initialMethod = null;
         Method finalMethod = null;
         for (Method m : methods) {
             if (m.getAnnotation(BeforeSuite.class) != null) {
-                if (!initialFlag) {
-                    initialFlag = true;
+                if (initialMethod == null) {
                     initialMethod = m;
                 } else {
                     throw new RuntimeException("Слишком много методов BeforeSuite");
@@ -34,8 +31,7 @@ public class TestRunner {
                 lm.add(m);
                 mapper.put(priority, lm);
             } else if (m.getAnnotation(AfterSuite.class) != null) {
-                if (!finalFlag) {
-                    finalFlag = true;
+                if (finalMethod == null) {
                     finalMethod = m;
                 } else {
                     throw new RuntimeException("Слишком много методов AfterSuite");
