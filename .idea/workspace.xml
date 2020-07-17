@@ -60,7 +60,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.TestRunner">
+  <component name="RunManager" selected="Application.MainApp">
     <configuration name="MainApp (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson8.homework.MainApp" />
       <module name="Java VTB" />
@@ -70,6 +70,13 @@
     </configuration>
     <configuration name="MainApp (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson9.homework.MainApp" />
+      <module name="Java VTB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vtb.java.lesson12.homework.MainApp" />
       <module name="Java VTB" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,6 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.TestRunner" />
         <item itemvalue="Application.MainApp (4)" />
         <item itemvalue="Application.RaceApp" />
@@ -121,39 +129,43 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="485" y="72" key="#MainApp/0.0.1536.824@0.0.1536.824" timestamp="1592409715492" />
-    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1593167045854">
+    <state x="361" y="53" key="#Plugins" timestamp="1594748769870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593167045854" />
+    <state x="361" y="53" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1594748769870" />
+    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1594979417571">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594979417571" />
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592562709648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1592562709648" />
-    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1594036773298">
+    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1594636851493">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1594036773298" />
+    <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1594636851493" />
     <state x="424" y="8" key="CommitChangelistDialog2" timestamp="1593107255015">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="424" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1593107255015" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1593096297285">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1594887264563">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593096297285" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom" timestamp="1594631029608">
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594887264563" />
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center" timestamp="1594631029608">
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left" timestamp="1594631029607">
+    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594631029607" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right" timestamp="1594631029608">
+    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594631029608" />
@@ -165,14 +177,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593096938135" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1594630524581">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1594722542409">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594630524581" />
-    <state x="436" y="109" key="new project wizard" timestamp="1593096304486">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594722542409" />
+    <state x="499" y="187" key="extract.method.dialog" timestamp="1594980710480">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="436" y="109" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1593096304486" />
+    <state x="499" y="187" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1594980710480" />
+    <state x="436" y="109" key="new project wizard" timestamp="1594887323738">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="436" y="109" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1594887323738" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1592389413150">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
