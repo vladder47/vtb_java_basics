@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e6f0bdf1-4483-4b40-b745-9dc057b04eb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Java VTB.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson11/homework/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vtb/java/lesson11/homework/Tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/ReflectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/ReflectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vtb/java/lesson12/homework/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/students.db" beforeDir="false" afterPath="$PROJECT_DIR$/students.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -106,10 +108,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="53" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1594748769870" />
-    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1593167045854">
+    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser" timestamp="1594979417571">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593167045854" />
+    <state x="190" y="97" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594979417571" />
     <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592562709648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -126,22 +128,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1594887264563" />
-    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1594748853625">
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594748853625" />
-    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1594748853624">
+    <state width="1493" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.center" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594748853624" />
-    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1594748853624">
+    <state width="1493" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.left" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594748853624" />
-    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1594748853624">
+    <state width="1493" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
+    <state width="1493" height="206" key="GridCell.Tab.0.right" timestamp="1594987669573">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594748853624" />
+    <state width="1493" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594987669573" />
     <state x="278" y="43" key="SettingsEditor" timestamp="1594887191993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -154,6 +156,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1594722542409" />
+    <state x="499" y="187" key="extract.method.dialog" timestamp="1594980710480">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="187" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1594980710480" />
     <state x="436" y="109" key="new project wizard" timestamp="1594887323738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

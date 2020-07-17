@@ -14,9 +14,17 @@ public class Student {
     public Student() {}
 
     public Student(String name, int avgScore) {
-        this.studId = 0;
+        this.studId = 0L;
         this.name = name;
         this.avgScore = avgScore;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void getInfo() {

@@ -7,59 +7,75 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReflectionRepository<T> {
-    private Class<T> myClass;
-    private Connection conn;
-    private Statement stmt;
+    private final Class<T> myClass;
+    private final Connection conn;
     private PreparedStatement ps;
+    private final Field[] fields;
     // поле, в котором хранится название поля с аннотацией @DbId
     private String idName;
     // поле, в котором хранится название таблицы
-    private String tableName;
+    private final String tableName;
+    private PreparedStatement insertPrepStmt;
 
-    public ReflectionRepository(Class<T> myClass) {
+    public ReflectionRepository(Class<T> myClass, Connection conn) throws SQLException {
+        checkAnnotations(myClass);
+        this.myClass = myClass;
+        this.conn = conn;
+        this.fields = myClass.getDeclaredFields();
+        this.tableName =  myClass.getAnnotation(DbTable.class).name();
+        this.insertPrepStmt = buildQueryInsert();
+        // узнаем имя поля с аннотацией @DbId
+        getIdName();
+    }
+
+    // проверка наличия соответсвующих аннотаций в классе
+    private void checkAnnotations(Class<T> myClass) {
         if (!myClass.isAnnotationPresent(DbTable.class)) {
             throw new RuntimeException("Для данного класса нельзя создать ReflectionRepository");
         }
-        this.myClass = myClass;
-        this.tableName =  myClass.getAnnotation(DbTable.class).name();
-
-    }
-
-    public void connect() throws ClassNotFoundException, SQLException {
-        Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite:students.db");
-        stmt = conn.createStatement();
+        boolean checkId = false;
+        boolean checkColumn = false;
+        for (Field f : myClass.getDeclaredFields()) {
+            if (f.isAnnotationPresent(DbId.class)) {
+                checkId = true;
+            }
+            if (f.isAnnotationPresent(DbColumn.class)) {
+                checkColumn = true;
+            }
+        }
+        if (!checkId) {
+            throw new RuntimeException("В классе отсутствует поле с аннотацией @DbId");
+        }
+        if (!checkColumn) {
+            throw new RuntimeException("В классе отсутствует поле с аннотацией @DbColumn");
+        }
     }
 
     // добавление одной записи в БД
     public void insertObject(T obj) throws SQLException, IllegalAccessException {
-        stmt.executeUpdate(buildQueryInsert(obj));
+        fillPreparedStatement(obj);
+        insertPrepStmt.executeUpdate();
     }
 
     // добавление списка записей в БД
     public void insertObjects(List<T> objects) throws IllegalAccessException, SQLException {
         for (T obj : objects) {
-            stmt.addBatch(buildQueryInsert(obj));
+            fillPreparedStatement(obj);
+            insertPrepStmt.addBatch();
         }
-        stmt.executeBatch();
+        insertPrepStmt.executeBatch();
     }
 
     // формирование запроса для отправки записи в БД
     // в query формируется строка вида "INSERT INTO students (name, avgScore) VALUES "
-    // в fieldsName - "('Vladislav', 90)"
-    private String buildQueryInsert(T obj) throws IllegalAccessException {
-        Field[] fields = myClass.getDeclaredFields();
+    // в fieldsName - "(?, ?)"
+    private PreparedStatement buildQueryInsert() throws SQLException {
         StringBuilder query = new StringBuilder(String.format("INSERT INTO %s(", tableName));
         StringBuilder fieldsName = new StringBuilder("(");
         for (Field f : fields) {
-            f.setAccessible(true);
             if (f.isAnnotationPresent(DbColumn.class)) {
                 query.append(f.getName()).append(", ");
-                if (f.getType() == String.class) {
-                    fieldsName.append(String.format("'%s', ", f.get(obj)));
-                } else {
-                    fieldsName.append(f.get(obj)).append(", ");
-                }
+                fieldsName.append("?, ");
             }
         }
         query.setLength(query.length() - 2);
@@ -67,8 +83,22 @@ public class ReflectionRepository<T> {
         query.append(") VALUES");
         fieldsName.append(")");
         query.append(fieldsName);
+        insertPrepStmt = conn.prepareStatement(query.toString());
 
-        return query.toString();
+        return insertPrepStmt;
+    }
+
+    private void fillPreparedStatement(T obj) throws IllegalAccessException, SQLException {
+        for (int i = 0; i < fields.length; i++) {
+            fields[i].setAccessible(true);
+            if (fields[i].isAnnotationPresent(DbColumn.class)) {
+                if (fields[i].getType() == String.class) {
+                    insertPrepStmt.setString(i, (String) fields[i].get(obj));
+                } else {
+                    insertPrepStmt.setInt(i, (int) fields[i].get(obj));
+                }
+            }
+        }
     }
 
     // удаление по ID
@@ -95,7 +125,8 @@ public class ReflectionRepository<T> {
 
     // получение всех записей
     public List<T> getAll() throws SQLException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
-        ResultSet rs = stmt.executeQuery(String.format("SELECT * FROM %s", tableName));
+        ps = conn.prepareStatement(String.format("SELECT * FROM %s", tableName));
+        ResultSet rs = ps.executeQuery();
         List<T> objects = new ArrayList<>();
         while (rs.next()) {
             objects.add(createObject(rs));
@@ -105,10 +136,6 @@ public class ReflectionRepository<T> {
 
     // создание объекта класса T
     private T createObject(ResultSet rs) throws SQLException, NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
-        // узнаем названия поля с аннотацией @DbId
-        if (idName == null) {
-            getIdName();
-        }
         Field column;
         T obj = myClass.getConstructor().newInstance();
         int columns = rs.getMetaData().getColumnCount();
@@ -137,30 +164,6 @@ public class ReflectionRepository<T> {
             if (f.isAnnotationPresent(DbId.class)) {
                 this.idName = f.getName();
             }
-        }
-    }
-
-    public void disconnect() {
-        try {
-            if (stmt != null) {
-                stmt.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (ps != null) {
-                ps.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }
