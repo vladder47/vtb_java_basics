@@ -15,7 +15,7 @@ public class MainApp {
         System.out.printf("Подстрока %s встретилась в файле %d раз(а)\n", subStrTwo, subStrCountTwo);
 
         File catalog = new File("lesson14_files/txt_files");
-        File mergedFile = new File("lesson14_files/merged_le.txt");
+        File mergedFile = new File("lesson14_files/merged_file.txt");
         try {
             mergeTextFiles(catalog, mergedFile);
         } catch (FileNotFoundException e) {
