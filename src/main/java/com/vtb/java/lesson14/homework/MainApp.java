@@ -65,7 +65,7 @@ public class MainApp {
                     inputStreams.add(new FileInputStream(f));
                 }
                 try (InputStream seq = new BufferedInputStream(new SequenceInputStream(inputStreams.elements()));
-                     FileOutputStream out = new FileOutputStream(result)) {
+                     OutputStream out = new BufferedOutputStream(new FileOutputStream(result))) {
                     int chr;
                     while ((chr = seq.read()) != -1) {
                         out.write(chr);
