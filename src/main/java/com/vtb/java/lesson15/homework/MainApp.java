@@ -1,7 +1,5 @@
 package com.vtb.java.lesson15.homework;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -10,7 +8,6 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MainApp {
     public static void main(String[] args) {
