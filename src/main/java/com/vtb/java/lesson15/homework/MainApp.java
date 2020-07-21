@@ -25,31 +25,31 @@ public class MainApp {
         System.out.printf("Подстрока %s встретилась в файле %d раз(а)\n", subStr, subStrCountThree);
         System.out.printf("Подстрока %s встретилась в файле %d раз(а)\n", subStrTwo, subStrCountFour);
 
-//        Path mergedFile = Paths.get("lesson14_files", "merged_file_1.txt");
-//        Path catalog = Paths.get("lesson14_files", "txt_files");
-//        mergeTxtFiles(catalog, mergedFile);
+        Path mergedFile = Paths.get("lesson14_files", "merged_file_1.txt");
+        Path catalog = Paths.get("lesson14_files", "txt_files");
+        mergeTxtFiles(catalog, mergedFile);
 
-//        Path catalogToSearch = Paths.get("lesson14_files", "catalog");
-//        List<Path> smallFiles = searchSmallFilesInCatalog(catalogToSearch);
-//        System.out.println("Список файлов с размером менее 100 Кб в каталоге catalog (и его подкаталогах):");
-//        for (Path file : smallFiles) {
-//            System.out.println(file.getFileName());
-//        }
+        Path catalogToSearch = Paths.get("lesson14_files", "catalog");
+        List<Path> smallFiles = searchSmallFilesInCatalog(catalogToSearch);
+        System.out.println("Список файлов с размером менее 100 Кб в каталоге catalog (и его подкаталогах):");
+        for (Path path : smallFiles) {
+            System.out.println(path.getFileName());
+        }
     }
 
-    // метод, в котором размер ByteBuffer равен 100 байтам
+    // метод, в котором размер ByteBuffer равен 8192 байтам
     public static int getSubstringCount(Path path, String substr) {
         int count = 0;
         try (RandomAccessFile file = new RandomAccessFile(path.toFile(), "r");
              FileChannel inChannel = file.getChannel()) {
-            ByteBuffer buf = ByteBuffer.allocate(100);
+            ByteBuffer buf = ByteBuffer.allocate(8192);
             int bytesRead = inChannel.read(buf);
             while (bytesRead != -1) {
                 buf.flip();
                 while (buf.hasRemaining()) {
                     int pos = buf.position();
                     // если дошли до момента, когда длина оставшейся части буфера
-                    // меньше длины подстроки, то выходим из цикла
+                    // меньше длины подстроки, то выходим из цикла (оставшаяся часть переносится в начало с помощью compact())
                     // (без такой проверки иногда выскакивало BufferUnderflowException)
                     if (pos <= buf.limit() - substr.length()) {
                         for (int i = 0; i < substr.length(); i++) {
@@ -63,10 +63,10 @@ public class MainApp {
                         }
                         buf.position(pos + 1);
                     } else {
+                        buf.compact();
                         break;
                     }
                 }
-                buf.clear();
                 bytesRead = inChannel.read(buf);
             }
         } catch (IOException e) {
@@ -115,7 +115,7 @@ public class MainApp {
                     if (path.toString().endsWith(".txt")) {
                         try (RandomAccessFile file = new RandomAccessFile(path.toFile(), "r");
                              FileChannel inChannel = file.getChannel()) {
-                            ByteBuffer buf = ByteBuffer.allocate(100);
+                            ByteBuffer buf = ByteBuffer.allocate(8192);
                             int bytesRead = inChannel.read(buf);
                             while (bytesRead != -1) {
                                 buf.flip();
@@ -142,7 +142,7 @@ public class MainApp {
             try {
                 Files.walkFileTree(catalog, new FileVisitor<>() {
                     @Override
-                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
                         return FileVisitResult.CONTINUE;
                     }
 
@@ -155,12 +155,12 @@ public class MainApp {
                     }
 
                     @Override
-                    public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                    public FileVisitResult visitFileFailed(Path file, IOException exc) {
                         return FileVisitResult.TERMINATE;
                     }
 
                     @Override
-                    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    public FileVisitResult postVisitDirectory(Path dir, IOException exc) {
                         return FileVisitResult.CONTINUE;
                     }
                 });
