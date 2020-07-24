@@ -52,5 +52,5 @@ SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN subjects ON subject
 SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN students ON students.id = student_id WHERE student_id = 1 GROUP BY students.name;
 SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN students ON students.id = student_id WHERE student_id = 2 GROUP BY students.name;
 
-# 9-ое задание (здесь посчитал, что если оценка = 2, то предмет не сдан)
+# 10-ое задание (здесь посчитал, что если оценка = 2, то предмет не сдан)
 SELECT name, count(*) AS pass_number FROM progress JOIN subjects ON subjects.id = subject_id WHERE mark > 2 GROUP BY subjects.name ORDER BY pass_number DESC LIMIT 3;
