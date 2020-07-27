@@ -1,0 +1,56 @@
+CREATE SCHEMA java_vtb;
+set search_path to java_vtb;
+
+# создание таблицы студентов
+CREATE TABLE students (id bigserial primary key, name varchar(255), series integer not null, number integer not null, unique(series, number));
+\d students
+
+# создание таблицы предметов
+CREATE TABLE subjects (id bigserial primary key, name varchar(255) not null);
+\d subjects
+
+# создание таблицы успеваемости
+CREATE TABLE progress (id bigserial primary key, student_id bigint references students (id) on delete cascade, subject_id bigint references subjects (id) on delete cascade, mark integer not null, constraint valid_mark check (mark >= 2 and mark <= 5));
+# на всякий случай добавил уникальность пары "студент - предмет"
+ALTER TABLE progress add constraint progress_student_subject_key unique(student_id, subject_id);
+\d progress
+
+# заполнение таблиц
+INSERT INTO students (name, series, number) VALUES ('Vladislav',5555,345678), ('Boris', 3456, 678901), ('Denis', 2345, 678904), ('Sergei', 2341, 345678), ('Vladimir', 4567, 345673);
+SELECT * FROM students;
+INSERT INTO subjects (name) VALUES ('Math'), ('Informatics'), ('Chemistry'), ('Physics'), ('History');
+SELECT * FROM subjects;
+INSERT INTO progress (student_id, subject_id, mark) VALUES (1, 1, 5), (1, 2, 5), (1, 3, 4), (1, 4, 5), (1, 5, 4);
+INSERT INTO progress (student_id, subject_id, mark) VALUES (2, 1, 5), (2, 2, 5), (2, 3, 5), (2, 4, 5), (2, 5, 2);
+INSERT INTO progress (student_id, subject_id, mark) VALUES (3, 1, 3), (3, 2, 4), (3, 3, 4), (3, 4, 3), (3, 5, 3);
+INSERT INTO progress (student_id, subject_id, mark) VALUES (4, 1, 4), (4, 2, 4), (4, 3, 4), (4, 4, 2), (4, 5, 3);
+INSERT INTO progress (student_id, subject_id, mark) VALUES (5, 1, 4), (5, 2, 5), (5, 3, 4), (5, 4, 5), (5, 5, 5);
+SELECT * FROM progress;
+
+# 5 задание (предмет - История)
+SELECT name, series, number, mark FROM students INNER JOIN progress ON student_id = students.id WHERE subject_id = 5 AND mark > 3 ORDER BY students.name;
+
+# заполнение тестовых данных для проверки 6-го пункта
+INSERT INTO students (name, series, number) VALUES ('Temp_user', 4563, 111111);
+# проверка того, что нельзя добавить оценку, не находящуюся в пределах от 2 до 5
+INSERT INTO progress (student_id, subject_id, mark) VALUES (6, 1, 6);
+
+INSERT INTO progress (student_id, subject_id, mark) VALUES (6, 1, 4), (6, 2, 5), (6, 3, 4), (6, 4, 5), (6, 5, 5);
+SELECT * FROM students;
+SELECT * FROM progress;
+
+# проверка 6-го пункта
+DELETE FROM students WHERE id = 6;
+SELECT * FROM students;
+SELECT * FROM progress;
+
+# 7-ое задание (предметы - математика и физика)
+SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN subjects ON subjects.id = subject_id WHERE subject_id = 1 GROUP BY subjects.name;
+SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN subjects ON subjects.id = subject_id WHERE subject_id = 2 GROUP BY subjects.name;
+
+# 8-ое задание (студенты - Владислав и Борис)
+SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN students ON students.id = student_id WHERE student_id = 1 GROUP BY students.name;
+SELECT name, avg(mark) AS avg_score FROM progress INNER JOIN students ON students.id = student_id WHERE student_id = 2 GROUP BY students.name;
+
+# 10-ое задание (здесь посчитал, что если оценка = 2, то предмет не сдан)
+SELECT name, count(*) AS pass_number FROM progress JOIN subjects ON subjects.id = subject_id WHERE mark > 2 GROUP BY subjects.name ORDER BY pass_number DESC LIMIT 3;
