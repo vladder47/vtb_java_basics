@@ -17,23 +17,14 @@ public class Product {
     @Column(name = "current_price")
     private Long currentPrice;
 
-    @ManyToMany
-    @JoinTable(
-            name = "purchases",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "client_id")
-    )
-    private List<Client> clients;
-
     @OneToMany(mappedBy = "product")
     private List<PurchaseDetails> purchaseDetails;
 
     public Product() {}
 
-    public Product(String name, Long currentPrice, List<Client> clients) {
+    public Product(String name, Long currentPrice) {
         this.name = name;
         this.currentPrice = currentPrice;
-        this.clients = clients;
     }
 
     public Long getId() {
@@ -58,14 +49,6 @@ public class Product {
 
     public void setCurrentPrice(Long currentPrice) {
         this.currentPrice = currentPrice;
-    }
-
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
     }
 
     public List<PurchaseDetails> getPurchaseDetails() {

@@ -14,22 +14,13 @@ public class Client {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany
-    @JoinTable(
-            name = "purchases",
-            joinColumns = @JoinColumn(name = "client_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private List<Product> products;
-
     @OneToMany(mappedBy = "client")
     private List<PurchaseDetails> purchaseDetails;
 
     public Client() {}
 
-    public Client(String name, List<Product> products) {
+    public Client(String name) {
         this.name = name;
-        this.products = products;
     }
 
     public Long getId() {
@@ -46,18 +37,6 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public void addProduct(Product product) {
-        products.add(product);
     }
 
     public List<PurchaseDetails> getPurchaseDetails() {

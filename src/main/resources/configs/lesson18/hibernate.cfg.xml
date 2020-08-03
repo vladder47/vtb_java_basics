@@ -15,7 +15,6 @@
 
         <mapping class="com.vtb.java.lesson18.homework.Client"/>
         <mapping class="com.vtb.java.lesson18.homework.Product"/>
-        <mapping class="com.vtb.java.lesson18.homework.Purchase"/>
         <mapping class="com.vtb.java.lesson18.homework.PurchaseDetails"/>
     </session-factory>
 </hibernate-configuration>

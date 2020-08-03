@@ -2,6 +2,7 @@ package com.vtb.java.lesson18.homework;
 
 import org.hibernate.Session;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +50,14 @@ public class DataBaseAPI {
     }
 
     public List<Product> getProductsByConsumer(String name) {
+        List<Product> products = new ArrayList<>();
         Client client = getClient(name);
-        return client.getProducts();
+        TypedQuery<PurchaseDetails> query = session.createQuery("SELECT p FROM PurchaseDetails p WHERE p.client = :client", PurchaseDetails.class);
+        query.setParameter("client", client);
+        for (PurchaseDetails pd : query.getResultList()) {
+            products.add(pd.getProduct());
+        }
+        return products;
     }
 
     public List<Long> getPurchasesCost(String name) {
@@ -63,8 +70,14 @@ public class DataBaseAPI {
     }
 
     public List<Client> getConsumersByProductTitle(String name) {
+        List<Client> clients = new ArrayList<>();
         Product product = getProduct(name);
-        return product.getClients();
+        TypedQuery<PurchaseDetails> query = session.createQuery("SELECT p FROM PurchaseDetails p WHERE p.product = :product", PurchaseDetails.class);
+        query.setParameter("product", product);
+        for (PurchaseDetails pd : query.getResultList()) {
+            clients.add(pd.getClient());
+        }
+        return clients;
     }
 
     public void deleteClient(String name) {
@@ -82,8 +95,6 @@ public class DataBaseAPI {
     public void buyProduct(Long clientId, Long productId) {
         Client client = getClient(clientId);
         Product product = getProduct(productId);
-        Purchase purchase = new Purchase(clientId, productId);
-        session.save(purchase);
         PurchaseDetails purchaseDetails = new PurchaseDetails(client, product, product.getCurrentPrice());
         session.save(purchaseDetails);
     }

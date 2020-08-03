@@ -27,21 +27,6 @@ VALUES ('phone', 1000),
        ('microwave', 2500),
        ('temp_product', 10000);
 
-DROP TABLE IF EXISTS purchases CASCADE;
-CREATE TABLE purchases
-(
-    id         BIGSERIAL PRIMARY KEY,
-    client_id  INTEGER REFERENCES clients (id) ON DELETE CASCADE,
-    product_id INTEGER REFERENCES products (id) ON DELETE CASCADE
-);
-INSERT INTO purchases (client_id, product_id)
-VALUES (1, 1),
-       (1, 2),
-       (2, 3),
-       (2, 4),
-       (4, 1),
-       (4, 3);
-
 DROP TABLE IF EXISTS purchases_details CASCADE;
 CREATE TABLE purchases_details
 (
