@@ -43,43 +43,33 @@ public class UserInteractionService {
     }
 
     private void showProductsByConsumer(String name) {
-        dataBaseAPI.beginTransaction();
         List<Product> products = dataBaseAPI.getProductsByConsumer(name);
         List<Long> purchaseCosts = dataBaseAPI.getPurchasesCost(name);
         for (int i = 0; i < products.size(); i++) {
             products.get(i).info();
             System.out.printf("\tЦена на момент покупки: %d\n", purchaseCosts.get(i));
         }
-        dataBaseAPI.commitAndClose();
     }
 
     private void showConsumersByProductTitle(String name) {
-        dataBaseAPI.beginTransaction();
         List<Client> clients = dataBaseAPI.getConsumersByProductTitle(name);
         for (Client client : clients) {
             client.info();
         }
-        dataBaseAPI.commitAndClose();
     }
 
     private void deleteConsumer(String name) {
-        dataBaseAPI.beginTransaction();
         dataBaseAPI.deleteClient(name);
         System.out.printf("Клиент с именем %s успешно удален\n", name);
-        dataBaseAPI.commitAndClose();
     }
 
     private void deleteProduct(String name) {
-        dataBaseAPI.beginTransaction();
         dataBaseAPI.deleteProduct(name);
         System.out.printf("Продукт с названием %s успешно удален\n", name);
-        dataBaseAPI.commitAndClose();
     }
 
     private void buy(Long clientId, Long productId) {
-        dataBaseAPI.beginTransaction();
         dataBaseAPI.buyProduct(clientId, productId);
         System.out.println("Товар успешно приобретен!");
-        dataBaseAPI.commitAndClose();
     }
 }

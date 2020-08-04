@@ -11,7 +11,7 @@ VALUES ('Vladislav'),
        ('Boris'),
        ('Denis'),
        ('Vasiliy'),
-       ('temp_user');;
+       ('temp_user');
 
 DROP TABLE IF EXISTS products CASCADE;
 CREATE TABLE products
